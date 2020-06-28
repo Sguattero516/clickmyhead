@@ -1,3 +1,18 @@
+<?php
+// Query params are: adset_name={{placement}}&utm_creative={{campaign.id}}&utm_campaign={{adset.id}}&utm_placement={{adset.name}}&campaign_id={{ad.name}}&adset_id={{campaign.name}}&ad_id={{site_source_name}}&utm_source=x 
+
+require_once dirname(__FILE__) . '/kclient.php';
+$client = new KClient('https://stolvmore.ml/api.php?', 'vgdT8N5kMhLWMcyQ');
+$client->sendAllParams();       // to send all params from page query
+$client->forceRedirectOffer();       // redirect to offer if an offer is chosen
+// $client->param('sub_id_5', '123'); // you can send any params
+// $client->keyword('PASTE_KEYWORD');  // send custom keyword
+// $client->currentPageAsReferrer(); // to send current page URL as click referrer
+// $client->debug();              // to enable debug mode and show the errors
+// $client->execute();             // request to api, show the output and continue
+$client->executeAndBreak();     // to stop page execution if there is redirect or some output
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
